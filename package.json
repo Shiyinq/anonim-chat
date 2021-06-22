@@ -4,7 +4,7 @@
   "description": "Anonymous Chat",
   "main": "index.js",
   "scripts": {
-    "dev" : "nodemon",
+    "dev": "nodemon",
     "start": "node index.js"
   },
   "author": "Shiyinq",
