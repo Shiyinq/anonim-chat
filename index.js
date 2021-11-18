@@ -77,11 +77,10 @@ bot.on('video', (ctx) => {
     Matchmaker.connect(id, ['video', videoID])
 })
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
 bot.launch()
+
+app.get('/', (req, res) => res.send("Hello World!"))
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
