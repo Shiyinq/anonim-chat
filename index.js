@@ -3,7 +3,7 @@ require('./config/database')
 
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 5000
 
 const { Telegraf} = require('telegraf')
 const bot = new Telegraf(process.env.BOT_TOKEN)
