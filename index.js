@@ -14,7 +14,11 @@ let Matchmaker = new MatchMaker()
 Matchmaker.init()
 
 bot.start((ctx) => {
-    ctx.reply('Selamat Datang di Anonim Chat\n\n/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat')
+    ctx.reply('Selamat Datang di Anonim Chat\n\n/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian')
+})
+
+bot.command('help', (ctx) => {
+    ctx.reply('/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian')
 })
 
 bot.command('ping', (ctx) => {
@@ -36,6 +40,11 @@ bot.command('next', (ctx) => {
 bot.command('stop', (ctx) => {
     let id = ctx.message.chat.id
     Matchmaker.stop(id)
+})
+
+bot.command('exit', (ctx) => {
+    let id = ctx.message.chat.id
+    Matchmaker.exit(id)
 })
 
 bot.on('text', (ctx) => {

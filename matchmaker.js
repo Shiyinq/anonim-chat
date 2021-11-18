@@ -118,6 +118,20 @@ class MatchMaker {
         })
     }
 
+    exit(userID) {
+        Queue.findOneAndDelete({user_id: userID}, (err, doc, res) => {
+            if(err) {
+                console.log(err)
+            }else {
+                if(doc != null) {
+                    tg.sendMessage(userID, 'Telah keluar dari antrian')
+                }else {
+                    tg.sendMessage(userID, 'Kamu tidak dalam antrian')
+                }
+            }
+        }) 
+    }
+
     connect(userID, [type, data]) {
         Room.find({participans: userID}, (err, res) => {
             if(err) {
