@@ -85,10 +85,10 @@ class MatchMaker {
                     participans.forEach(id => {
                         if(userID === id) {
                             tg.sendMessage(userID, 'Telah berhenti dari percakapan')
+                            this.find(userID)
                         }else {
                             tg.sendMessage(id, 'Temanmu memberhentikan percakapan')
                         }
-                        this.find(userID)
                     })
                 }else {
                     tg.sendMessage(userID, 'Kamu tidak punya teman chat\n\n/find untuk mencari teman chat')
