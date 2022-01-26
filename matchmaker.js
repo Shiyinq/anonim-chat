@@ -4,6 +4,8 @@ const Room = require('./models/Room')
 const { Telegram } = require('telegraf')
 const tg = new Telegram(process.env.BOT_TOKEN)
 
+const text = require(`./config/lang/${process.env.LANGUAGE}`)
+
 class MatchMaker {
     init() {
         setInterval(() => {
@@ -16,7 +18,7 @@ class MatchMaker {
                         queues.map(q => {
                             Queue.deleteOne({user_id: q.user_id}, (err, res) => {
                                 if(err) {
-                                    console.log('error')
+                                    console.log(text.ERROR)
                                 }
                             })
                             newParticipan.push(q.user_id)
@@ -37,7 +39,7 @@ class MatchMaker {
             if(err) return console.error(err)
 
             newParticipan.forEach(id => {
-                tg.sendMessage(id, 'Teman chat ditemukan')
+                tg.sendMessage(id, text.CREATE_ROOM.SUCCESS_1)
             });
             console.log(data)
         });
@@ -49,16 +51,16 @@ class MatchMaker {
                 console.log(err)
             }else {
                 if(res.length > 0) {
-                    tg.sendMessage(userID, 'Kamu sedang berada di Antrian')
+                    tg.sendMessage(userID, text.FIND.WARNING_1)
                 }else {
                     Room.find({participans: userID}, (err, res) => {
                         if(err) {
                             console.log(err)
                         }else {
                             if(res.length > 0) {
-                                tg.sendMessage(userID, 'Kamu sedang ada didalam chat')
+                                tg.sendMessage(userID, text.FIND.WARNING_2)
                             }else {
-                                tg.sendMessage(userID, 'Sedang mencari teman...')
+                                tg.sendMessage(userID, text.FIND.LOADING)
                                 let queue = new Queue({
                                     user_id: userID
                                 });
@@ -84,14 +86,14 @@ class MatchMaker {
                     let participans = doc.participans
                     participans.forEach(id => {
                         if(userID === id) {
-                            tg.sendMessage(userID, 'Telah berhenti dari percakapan')
+                            tg.sendMessage(userID, text.NEXT.SUCCESS_1)
                             this.find(userID)
                         }else {
-                            tg.sendMessage(id, 'Temanmu memberhentikan percakapan')
+                            tg.sendMessage(id, text.NEXT.SUCCESS_2)
                         }
                     })
                 }else {
-                    tg.sendMessage(userID, 'Kamu tidak punya teman chat\n\n/find untuk mencari teman chat')
+                    tg.sendMessage(userID, text.NEXT.WARNING_1)
                 }
             }
         }) 
@@ -106,13 +108,13 @@ class MatchMaker {
                     let participans = doc.participans
                     participans.forEach(id => {
                         if(userID === id) {
-                            tg.sendMessage(userID, 'Telah berhenti dari percakapan')
+                            tg.sendMessage(userID, text.STOP.SUCCESS_1)
                         }else {
-                            tg.sendMessage(id, 'Temanmu memberhentikan percakapan')
+                            tg.sendMessage(id, text.STOP.SUCCESS_2)
                         }
                     })
                 }else {
-                    tg.sendMessage(userID, 'Kamu tidak punya teman chat\n\n/find untuk mencari teman chat')
+                    tg.sendMessage(userID, text.STOP.WARNING_1)
                 }
             }
         })
@@ -124,9 +126,9 @@ class MatchMaker {
                 console.log(err)
             }else {
                 if(doc != null) {
-                    tg.sendMessage(userID, 'Telah keluar dari antrian')
+                    tg.sendMessage(userID, text.EXIT.SUCCESS_1)
                 }else {
-                    tg.sendMessage(userID, 'Kamu tidak dalam antrian')
+                    tg.sendMessage(userID, text.EXIT.WARNING_1)
                 }
             }
         }) 
@@ -163,7 +165,7 @@ class MatchMaker {
                     }
 
                 }else {
-                    tg.sendMessage(userID, 'Kamu tidak punya teman chat\n\n/find untuk mencari teman chat')
+                    tg.sendMessage(userID, text.CONNECT.WARNING_1)
                 }
             }
         })

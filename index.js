@@ -1,6 +1,8 @@
 require('dotenv').config()
 require('./config/database')
 
+const text = require(`./config/lang/${process.env.LANGUAGE}`)
+
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000
@@ -14,17 +16,17 @@ let Matchmaker = new MatchMaker()
 Matchmaker.init()
 
 bot.start((ctx) => {
-    ctx.reply('Selamat Datang di Anonim Chat\n\n/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian')
+    ctx.reply(text.START)
 })
 
 bot.command('help', (ctx) => {
-    ctx.reply('/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian')
+    ctx.reply(text.HELP)
 })
 
 bot.command('ping', (ctx) => {
     const start = new Date()
     const s = start / 1000 - ctx.message.date
-    ctx.replyWithHTML(`Pong 🏓 - <code>⏱ ${s.toFixed(3)} s</code>`)
+    ctx.replyWithHTML(`${text.PING} - <code>⏱ ${s.toFixed(3)} s</code>`)
 })
 
 bot.command('find', (ctx) => {
