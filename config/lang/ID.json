@@ -1,6 +1,6 @@
 {
 	"START": "Selamat Datang di Anonim Chat\n\n/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian",
-	"HELP": "/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit keluar dari antrian",
+	"HELP": "/find untuk mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit berhenti mencari teman chat",
 	"PING": "Pongg 🏓",
 	"CREATE_ROOM": {
 		"SUCCESS_1": "Teman chat ditemukan"
@@ -21,7 +21,7 @@
 		"WARNING_1": "Kamu tidak punya teman chat\n\n/find untuk mencari teman chat"
 	},
 	"EXIT": {
-		"SUCCESS_1": "Telah keluar dari antrian",
+		"SUCCESS_1": "Mencari teman chat dihentikan",
 		"WARNING_1": "Kamu tidak dalam antrian"
 	},
 	"CONNECT": {
