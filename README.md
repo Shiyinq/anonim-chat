@@ -19,6 +19,6 @@ Telegram Bot for chat with random stranger anonymously
 
 
 ## Try this bot
-https://t.me/sstt_anonim_chat_bot
+[![Bot](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/sstt_anonim_chat_bot)
 
-The bot server using a free server, may be would be down one week before end of month or if the quota server has reached max limit request
+> Note: The bot server using a free server, may be would be down one week before end of month or if the quota server has reached max limit request
