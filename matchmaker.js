@@ -155,7 +155,7 @@ class MatchMaker {
                             tg.sendPhoto(partnerID, data)
                             break;
                         case 'voice':
-                            tg.sendAudio(partnerID, data)
+                            tg.sendVoice(partnerID, data)
                             break;
                         case 'video':
                             tg.sendVideo(partnerID, data)
