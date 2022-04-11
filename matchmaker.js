@@ -4,6 +4,8 @@ const Room = require('./models/Room')
 const { Telegram } = require('telegraf')
 const tg = new Telegram(process.env.BOT_TOKEN)
 
+const Markup = require('telegraf').Markup
+
 const text = require(`./config/lang/${process.env.LANGUAGE}`)
 
 class MatchMaker {
@@ -152,13 +154,29 @@ class MatchMaker {
                             tg.sendSticker(partnerID, data)
                             break;
                         case 'photo':
-                            tg.sendPhoto(partnerID, data)
+                            tg.getFileLink(data)
+                                .then(url => {
+                                    let photoName = url.pathname.split('/photos/')[1]
+                                    tg.sendMessage(partnerID, text.USER_SEND_PHOTO.WARNING_1, 
+                                        Markup.inlineKeyboard([
+                                            [Markup.button.callback('Buka', 'openPhoto-'+String(photoName))],
+                                        ])
+                                    )
+                                })
                             break;
                         case 'voice':
                             tg.sendVoice(partnerID, data)
                             break;
                         case 'video':
-                            tg.sendVideo(partnerID, data)
+                             tg.getFileLink(data)
+                                .then(url => {
+                                    let photoName = url.pathname.split('/videos/')[1]
+                                    tg.sendMessage(partnerID, text.USER_SEND_VIDEO.WARNING_1, 
+                                        Markup.inlineKeyboard([
+                                            [Markup.button.callback('Buka', 'openVideo-'+String(photoName))],
+                                        ])
+                                    )
+                                })
                             break;
                         default:
                             break;
