@@ -19,6 +19,10 @@ bot.start((ctx) => {
     ctx.reply(text.START)
 })
 
+bot.command('contribute', (ctx) => {
+    ctx.reply(text.CONTRIBUTE)
+})
+
 bot.command('help', (ctx) => {
     ctx.reply(text.HELP)
 })
