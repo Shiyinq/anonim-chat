@@ -18,7 +18,7 @@ class MatchMaker {
                     if(queues.length == 2) {
                         let newParticipan = [];
                         queues.map(q => {
-                            Queue.deleteOne({user_id: q.user_id}, (err, res) => {
+                            Queue.deleteOne({user_id: q.user_id}, (err) => {
                                 if(err) {
                                     console.log(text.ERROR)
                                 }
@@ -80,7 +80,7 @@ class MatchMaker {
     }
 
     next(userID) {
-        Room.findOneAndDelete({participans: userID}, (err, doc, res) => {
+        Room.findOneAndDelete({participans: userID}, (err, doc) => {
             if(err) {
                 console.log(err)
             }else {
@@ -102,7 +102,7 @@ class MatchMaker {
     }
 
     stop(userID) {
-        Room.findOneAndDelete({participans: userID}, (err, doc, res) => {
+        Room.findOneAndDelete({participans: userID}, (err, doc) => {
             if(err) {
                 console.log(err)
             }else {
@@ -123,7 +123,7 @@ class MatchMaker {
     }
 
     exit(userID) {
-        Queue.findOneAndDelete({user_id: userID}, (err, doc, res) => {
+        Queue.findOneAndDelete({user_id: userID}, (err, doc) => {
             if(err) {
                 console.log(err)
             }else {
