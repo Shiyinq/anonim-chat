@@ -149,7 +149,12 @@ class MatchMaker {
                     switch (type) {
                         case 'text':
                             if(data.reply_to_message) {
-                                tg.sendMessage(partnerID, data.text, { reply_to_message_id : data.reply_to_message.message_id })
+                                let replyToMessageId = data.reply_to_message.message_id
+                                if(data.reply_to_message.from.id == userID) {
+                                    tg.sendMessage(partnerID, data.text, { reply_to_message_id : replyToMessageId + 1 })
+                                }else {
+                                    tg.sendMessage(partnerID, data.text, { reply_to_message_id : replyToMessageId - 1 })
+                                }
                             }else {
                                 tg.sendMessage(partnerID, data.text)
                             }
