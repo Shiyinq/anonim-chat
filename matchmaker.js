@@ -4,7 +4,7 @@ const Room = require('./models/Room')
 const { Telegram } = require('telegraf')
 const tg = new Telegram(process.env.BOT_TOKEN)
 
-const Markup = require('telegraf').Markup
+const { Markup } = require('telegraf')
 
 const text = require(`./config/lang/${process.env.LANGUAGE}`)
 
@@ -148,7 +148,11 @@ class MatchMaker {
 
                     switch (type) {
                         case 'text':
-                            tg.sendMessage(partnerID, data)
+                            if(data.reply_to_message) {
+                                tg.sendMessage(partnerID, data.text, { reply_to_message_id : data.reply_to_message.message_id })
+                            }else {
+                                tg.sendMessage(partnerID, data.text)
+                            }
                             break;
                         case 'sticker':
                             tg.sendSticker(partnerID, data)

@@ -55,7 +55,7 @@ bot.command('exit', (ctx) => {
 
 bot.on('text', (ctx) => {
     let id = ctx.message.chat.id
-    let message = ctx.message.text
+    let message = ctx.message
     Matchmaker.connect(id, ['text', message])
 })
 
