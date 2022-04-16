@@ -148,19 +148,19 @@ class MatchMaker {
 
                     switch (type) {
                         case 'text':
-                            if(data.reply_to_message) {
-                                let replyToMessageId = data.reply_to_message.message_id
-                                if(data.reply_to_message.from.id == userID) {
-                                    tg.sendMessage(partnerID, data.text, { reply_to_message_id : replyToMessageId + 1 })
-                                }else {
-                                    tg.sendMessage(partnerID, data.text, { reply_to_message_id : replyToMessageId - 1 })
-                                }
-                            }else {
+                            data.reply_to_message ? 
+                                this.#sendReplyMessage(partnerID, userID, data.text, data, 'sendMessage') : 
                                 tg.sendMessage(partnerID, data.text)
-                            }
                             break;
                         case 'sticker':
-                            tg.sendSticker(partnerID, data)
+                            data.reply_to_message ?
+                                this.#sendReplyMessage(partnerID, userID, data.sticker.file_id, data, 'sendSticker')  :
+                                tg.sendSticker(partnerID, data.sticker.file_id)
+                            break;
+                        case 'voice':
+                            data.reply_to_message ?
+                                this.#sendReplyMessage(partnerID, userID, data.voice.file_id, data, 'sendVoice') :
+                                tg.sendVoice(partnerID, data.voice.file_id)
                             break;
                         case 'photo':
                             tg.getFileLink(data)
@@ -172,9 +172,6 @@ class MatchMaker {
                                         ])
                                     )
                                 })
-                            break;
-                        case 'voice':
-                            tg.sendVoice(partnerID, data)
                             break;
                         case 'video':
                              tg.getFileLink(data)
@@ -197,6 +194,19 @@ class MatchMaker {
             }
         })
     }
+
+    #sendReplyMessage(partnerID, userID, dataToSend, dataReply, type) {
+        let {photo, video, message_id, from: {id} } = dataReply.reply_to_message
+
+        let number = photo || video ? 2 : 1
+        let replyToPlus =  { reply_to_message_id : message_id + number }
+        let replyToMinus =  { reply_to_message_id : message_id - number }
+
+        id == userID ? 
+            tg[type](partnerID, dataToSend, replyToPlus) : 
+            tg[type](partnerID, dataToSend, replyToMinus)
+    }
+
 }
 
 module.exports = MatchMaker

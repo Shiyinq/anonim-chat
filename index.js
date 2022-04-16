@@ -61,8 +61,14 @@ bot.on('text', (ctx) => {
 
 bot.on('sticker', (ctx) => {
     let id = ctx.message.chat.id
-    let stickerID = ctx.message.sticker.file_id
-    Matchmaker.connect(id, ['sticker', stickerID])
+    let sticker = ctx.message
+    Matchmaker.connect(id, ['sticker', sticker])
+})
+
+bot.on('voice', (ctx) => {
+    let id = ctx.message.chat.id
+    let voice = ctx.message
+    Matchmaker.connect(id, ['voice', voice])
 })
 
 bot.on('photo', (ctx) => {
@@ -70,12 +76,6 @@ bot.on('photo', (ctx) => {
     let photos = ctx.message.photo
     let photoID = photos[photos.length - 1].file_id
     Matchmaker.connect(id, ['photo', photoID])
-})
-
-bot.on('voice', (ctx) => {
-    let id = ctx.message.chat.id
-    let voiceID = ctx.message.voice.file_id
-    Matchmaker.connect(id, ['voice', voiceID])
 })
 
 bot.on('video', (ctx) => {
