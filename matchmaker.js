@@ -149,17 +149,17 @@ class MatchMaker {
                     switch (type) {
                         case 'text':
                             data.reply_to_message ? 
-                                this.#sendReplyMessage(partnerID, userID, data.text, data, 'sendMessage') : 
+                                this.#sendReply(partnerID, userID, data.text, data, 'sendMessage') : 
                                 tg.sendMessage(partnerID, data.text)
                             break;
                         case 'sticker':
                             data.reply_to_message ?
-                                this.#sendReplyMessage(partnerID, userID, data.sticker.file_id, data, 'sendSticker')  :
+                                this.#sendReply(partnerID, userID, data.sticker.file_id, data, 'sendSticker')  :
                                 tg.sendSticker(partnerID, data.sticker.file_id)
                             break;
                         case 'voice':
                             data.reply_to_message ?
-                                this.#sendReplyMessage(partnerID, userID, data.voice.file_id, data, 'sendVoice') :
+                                this.#sendReply(partnerID, userID, data.voice.file_id, data, 'sendVoice') :
                                 tg.sendVoice(partnerID, data.voice.file_id)
                             break;
                         case 'photo':
@@ -195,7 +195,7 @@ class MatchMaker {
         })
     }
 
-    #sendReplyMessage(partnerID, userID, dataToSend, dataReply, type) {
+    #sendReply(partnerID, userID, dataToSend, dataReply, type) {
         let {photo, video, message_id, from: {id} } = dataReply.reply_to_message
 
         let number = photo || video ? 2 : 1
