@@ -4,7 +4,7 @@ const Room = require('./models/Room')
 const { Telegram } = require('telegraf')
 const tg = new Telegram(process.env.BOT_TOKEN)
 
-const Markup = require('telegraf').Markup
+const { Markup } = require('telegraf')
 
 const text = require(`./config/lang/${process.env.LANGUAGE}`)
 
@@ -148,10 +148,19 @@ class MatchMaker {
 
                     switch (type) {
                         case 'text':
-                            tg.sendMessage(partnerID, data)
+                            data.reply_to_message ? 
+                                this.#sendReply(partnerID, userID, data.text, data, 'sendMessage') : 
+                                tg.sendMessage(partnerID, data.text)
                             break;
                         case 'sticker':
-                            tg.sendSticker(partnerID, data)
+                            data.reply_to_message ?
+                                this.#sendReply(partnerID, userID, data.sticker.file_id, data, 'sendSticker')  :
+                                tg.sendSticker(partnerID, data.sticker.file_id)
+                            break;
+                        case 'voice':
+                            data.reply_to_message ?
+                                this.#sendReply(partnerID, userID, data.voice.file_id, data, 'sendVoice') :
+                                tg.sendVoice(partnerID, data.voice.file_id)
                             break;
                         case 'photo':
                             tg.getFileLink(data)
@@ -163,9 +172,6 @@ class MatchMaker {
                                         ])
                                     )
                                 })
-                            break;
-                        case 'voice':
-                            tg.sendVoice(partnerID, data)
                             break;
                         case 'video':
                              tg.getFileLink(data)
@@ -188,6 +194,19 @@ class MatchMaker {
             }
         })
     }
+
+    #sendReply(partnerID, userID, dataToSend, dataReply, type) {
+        let {photo, video, message_id, from: {id} } = dataReply.reply_to_message
+
+        let number = photo || video ? 2 : 1
+        let replyToPlus =  { reply_to_message_id : message_id + number }
+        let replyToMinus =  { reply_to_message_id : message_id - number }
+
+        id == userID ? 
+            tg[type](partnerID, dataToSend, replyToPlus) : 
+            tg[type](partnerID, dataToSend, replyToMinus)
+    }
+
 }
 
 module.exports = MatchMaker
