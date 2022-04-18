@@ -18,7 +18,7 @@ Telegram Bot for chat with random stranger anonymously
 - node js v14
 - mongodb v5
 
-## Running on you local machine
+## Running on your local machine
 - ```git clone https://github.com/Shiyinq/anonim-chat.git```
 - ```cd anonim-chat```
 - ```npm install```
