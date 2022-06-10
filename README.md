@@ -9,7 +9,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Shiyinq/anonim-chat)
 
 
-Telegram Bot for chat with random stranger anonymously
+Chat with random stranger anonymously
 
 <img width="399" alt="image" src="anonim-chat.png">
 
