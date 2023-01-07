@@ -20,7 +20,11 @@ bot.start((ctx) => {
 })
 
 bot.command('contribute', (ctx) => {
-    ctx.reply(text.CONTRIBUTE)
+    ctx.reply(text.CONTRIBUTE, {
+		"reply_markup":{
+			"inline_keyboard": [[{"text":"Open GitHub", "url": 'https://github.com/Shiyinq/anonim-chat'}]]
+		}
+	})
 })
 
 bot.command('help', (ctx) => {

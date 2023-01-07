@@ -1,7 +1,7 @@
 {
 	"START": "Selamat Datang di Anonim Chat\n\n/find mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit berhenti mencari teman chat\n\n/contribute ikut berkontibusi ke project/lapor bug",
 	"HELP": "/find mencari teman chat\n/next berhenti dari chat dan mencari teman lain\n/stop berhenti dari chat\n/exit berhenti mencari teman chat\n\n/contribute ikut berkontibusi ke project/lapor bug",
-	"CONTRIBUTE": "Untuk teman\" jika ingin berkontribusi untuk botnya\n\nseperti: \n- menambah fitur\n- lapor bug\n- dll\n\nbisa pull request atau buat issue di github\nhttps://github.com/Shiyinq/anonim-chat",
+	"CONTRIBUTE": "Untuk teman\" jika ingin berkontribusi untuk botnya\n\nseperti: \n- menambah fitur\n- lapor bug\n- dll\n\nbisa pull request atau buat issue di GitHub",
 	"PING": "Pongg 🏓",
 	"CREATE_ROOM": {
 		"SUCCESS_1": "Teman chat ditemukan"
