@@ -1,7 +1,7 @@
 require('dotenv').config()
-require('./config/database')
+require('./src/config/database')
 
-const text = require(`./config/lang/${process.env.LANGUAGE}`)
+const text = require(`./src/config/lang/${process.env.LANGUAGE}`)
 
 const express = require('express')
 const app = express()
@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000
 const { Telegraf} = require('telegraf')
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-const MatchMaker = require('./matchmaker')
+const MatchMaker = require('./src/matchmaker')
 let Matchmaker = new MatchMaker()
 
 Matchmaker.init()
