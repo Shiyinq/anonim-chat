@@ -207,6 +207,18 @@ class MatchMaker {
         })
     }
 
+    async currentActiveUser(userID) {
+        let totalUserInRoom = await Room.countDocuments() * 2
+        let totalUserInQueue = await Queue.countDocuments()
+        let totalUser = totalUserInRoom + totalUserInQueue
+        let textAactiveUser = text.ACTIVE_USER
+            .replace('${totalUser}', totalUser)
+            .replace('${totalUserInQueue}', totalUserInQueue)
+            .replace('${totalUserInRoom}', totalUserInRoom)
+
+        tg.sendMessage(userID, textAactiveUser)
+    }
+
     #forceStop(userID) {
         Room.findOneAndDelete({participans: userID}, (err, doc) => {
             if(err) {

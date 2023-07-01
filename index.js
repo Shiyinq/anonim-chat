@@ -57,6 +57,11 @@ bot.command('exit', (ctx) => {
     Matchmaker.exit(id)
 })
 
+bot.command('users', (ctx) => {
+    let id = ctx.message.chat.id
+    Matchmaker.currentActiveUser(id)
+})
+
 bot.on('text', (ctx) => {
     let id = ctx.message.chat.id
     let message = ctx.message
