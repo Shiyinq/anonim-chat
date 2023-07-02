@@ -1,8 +1,7 @@
 # anonim-chat
-[![CodeFactor](https://www.codefactor.io/repository/github/shiyinq/anonim-chat/badge/main)](https://www.codefactor.io/repository/github/shiyinq/anonim-chat/overview/main)
+[![GitHub top language](https://img.shields.io/github/languages/top/Shiyinq/anonim-chat)](https://github.com/Shiyinq/anonim-chat)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Shiyinq/anonim-chat)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Shiyinq/anonim-chat)
-[![GitHub top language](https://img.shields.io/github/languages/top/Shiyinq/anonim-chat)](https://github.com/Shiyinq/anonim-chat)
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/Shiyinq/anonim-chat)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Shiyinq/anonim-chat)
