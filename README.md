@@ -5,7 +5,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Shiyinq/anonim-chat)
 
 
-| ![anonim-chat-1](docs/images/anonim-chat-1.png) | ![anonim-chat-2](docs/images/anonim-chat-2.png) | ![anonim-chat-3](docs/images/anonim-chat-3.png) |
+| ![anonim-chat-1](docs/images/anonim-chat-1.png) | ![anonim-chat-2](docs/images/anonim-chat-2.png) | ![anonim-chat-3](docs/images/anonim-chat-3v2.png) |
 |:---:|:---:|:---:|
 
 
