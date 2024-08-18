@@ -59,6 +59,13 @@ you can get token from [@BotFather](https://t.me/botfather)
 npm run dev
 ```
 
+**7. Test your bot**
+- Open Telegram and find the bot you created with @BotFather.
+- Start a conversation with your bot to ensure it's responding correctly.
+- For a more comprehensive test:
+    - Use two different Telegram accounts.
+    - Simulate a conversation between a user and your bot.
+
 ## Deployment
 Before you begin, ensure you have [Docker](https://docs.docker.com/engine/install/) installed.
 
