@@ -29,10 +29,12 @@
 		"WARNING_1": "Kamu tidak punya teman chat\n\n/find untuk mencari teman chat"
 	},
 	"USER_SEND_PHOTO": {
-		"WARNING_1": "ℹ️INFO \nTeman kamu mengirimkan foto, ingin membukanya?\n\n⚠️PERHATIAN! \nMungkin foto yang dikirimkan tidak sepantasnya untuk dilihat"
+		"WARNING_1": "ℹ️INFO \nTeman kamu mengirimkan foto, ingin membukanya?\n\n⚠️PERHATIAN! \nMungkin foto yang dikirimkan tidak sepantasnya untuk dilihat",
+		"BUTTON": "Buka"
 	},
 	"USER_SEND_VIDEO": {
-		"WARNING_1": "ℹ️INFO \nTeman kamu mengirimkan vidio, ingin membukanya?\n\n⚠️PERHATIAN! \nMungkin vidio yang dikirimkan tidak sepantasnya untuk dilihat"
+		"WARNING_1": "ℹ️INFO \nTeman kamu mengirimkan vidio, ingin membukanya?\n\n⚠️PERHATIAN! \nMungkin vidio yang dikirimkan tidak sepantasnya untuk dilihat",
+		"BUTTON": "Buka"
 	},
 	"ACTIVE_USER": "Saat ini, ada ${totalUser} orang yang menggunakan anonim-chat.\n\nAntrian: ${totalUserInQueue}\nPercakapan: ${totalUserInRoom}",
 	"ERROR": "Error"

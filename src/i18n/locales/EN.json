@@ -1,0 +1,41 @@
+{
+	"START": "Welcome to Anonim Chat\n\n/find to find a chat friend\n/next to stop chatting and find another friend\n/stop to stop chatting\n/exit to stop searching for a chat friend\n\n/ping to check bot status\n/users to see current active users\n\n/contribute to contribute to the project/report bugs",
+	"HELP": "/find to find a chat friend\n/next to stop chatting and find another friend\n/stop to stop chatting\n/exit to stop searching for a chat friend\n\n/contribute to contribute to the project/report bugs",
+	"CONTRIBUTE": "For those who want to contribute to the bot\n\nlike: \n- adding features\n- reporting bugs\n- etc\n\nyou can pull request or create an issue on GitHub",
+	"PING": "Pongg 🏓",
+	"CREATE_ROOM": {
+		"SUCCESS_1": "Chat partner found"
+	},
+	"FIND": {
+		"WARNING_1": "You are already in the queue",
+		"WARNING_2": "You are already in a chat",
+		"LOADING": "Looking for a friend..."
+	},
+	"NEXT": {
+		"SUCCESS_1": "You have left the conversation",
+		"SUCCESS_2": "Your partner has left the conversation",
+		"WARNING_1": "You don't have a chat partner\n\n/find to find a chat friend"
+	},
+	"STOP": {
+		"SUCCESS_1": "You have left the conversation",
+		"SUCCESS_2": "Your partner has left the conversation",
+		"WARNING_1": "You don't have a chat partner\n\n/find to find a chat friend"
+	},
+	"EXIT": {
+		"SUCCESS_1": "Stopped searching for a chat friend",
+		"WARNING_1": "You are not in the queue"
+	},
+	"CONNECT": {
+		"WARNING_1": "You don't have a chat partner\n\n/find to find a chat friend"
+	},
+	"USER_SEND_PHOTO": {
+		"WARNING_1": "ℹ️INFO \nYour friend sent a photo, do you want to open it?\n\n⚠️WARNING! \nThe photo sent may not be appropriate to view",
+		"BUTTON": "Open"
+	},
+	"USER_SEND_VIDEO": {
+		"WARNING_1": "ℹ️INFO \nYour friend sent a video, do you want to open it?\n\n⚠️WARNING! \nThe video sent may not be appropriate to view",
+		"BUTTON": "Open"
+	},
+	"ACTIVE_USER": "Currently, there are ${totalUser} people using anonim-chat.\n\nQueue: ${totalUserInQueue}\nIn conversation: ${totalUserInRoom}",
+	"ERROR": "Error"
+}
